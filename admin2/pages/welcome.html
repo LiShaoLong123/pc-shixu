@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>控制台页面</title>
+    <link rel="stylesheet" href="../../layui-2.3.0/css/layui.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script type="text/javascript" src="../../layui-2.3.0/layui.js" charset="utf-8"></script>
+    <style>
+        .layadmin-backlog .layadmin-backlog-body {
+            display: block;
+            padding: 10px 15px;
+            color: #fff;
+            border-radius: 2px;
+            transition: all .3s;
+            -webkit-transition: all .3s;
+            /* box-shadow: 0 0 5px rgb(30, 165, 86); */
+        }
+
+        .layui-tab-card > .layui-tab-title .layui-this {
+            color: #115e4e !important;
+        }
+
+        #Exchange {
+            background: -webkit-linear-gradient(320deg, #fc6b95 20%, #fdb0ae 80%);
+            background: -o-linear-gradient(320deg, #fc6b95 20%, #fdb0ae 80%);
+            background: -moz-linear-gradient(320deg, #fc6b95 20%, #fdb0ae 80%);
+            background: -ms-linear-gradient(320deg, #fc6b95 20%, #fdb0ae 80%);
+            box-shadow: 0px 4px 4px #fdb0ae;
+        }
+
+        #Exchanges {
+            background: -webkit-linear-gradient(320deg, #17b4e4 20%, #7de6fa 80%);
+            background: -o-linear-gradient(320deg, #17b4e4 20%, #7de6fa 80%);
+            background: -moz-linear-gradient(320deg, #17b4e4 20%, #7de6fa 80%);
+            background: -ms-linear-gradient(320deg, #17b4e4 20%, #7de6fa 80%);
+            box-shadow: 0 0 5px rgb(30, 165, 86);
+        }
+
+        #Exchanged {
+            background: -webkit-linear-gradient(320deg, #436dfd 20%, #99a4ee 80%);
+            background: -o-linear-gradient(320deg, #436dfd 20%, #99a4ee 80%);
+            background: -moz-linear-gradient(320deg, #436dfd 20%, #99a4ee 80%);
+            background: -ms-linear-gradient(320deg, #436dfd 20%, #99a4ee 80%);
+            box-shadow: 0 0 5px rgb(30, 165, 86);
+        }
+
+        #Exchangeds {
+            background: -webkit-linear-gradient(320deg, #ff5b35 20%, #fc9d84 80%);
+            background: -o-linear-gradient(320deg, #ff5b35 20%, #fc9d84 80%);
+            background: -moz-linear-gradient(320deg, #ff5b35 20%, #fc9d84 80%);
+            background: -ms-linear-gradient(320deg, #ff5b35 20%, #fc9d84 80%);
+            box-shadow: 0 0 5px rgb(30, 165, 86);
+        }
+
+        .layadmin-backlog-body h3 {
+            padding-bottom: 10px;
+            font-size: 12px;
+        }
+
+        .layadmin-carousel .layui-col-space10 {
+            margin: 0;
+        }
+
+        .layadmin-carousel .layui-carousel, .layadmin-carousel > [carousel-item] > * {
+            background-color: #fff;
+        }
+
+        .layadmin-carousel {
+            height: 185px !important;
+            background-color: #fff;
+        }
+
+        .layadmin-carousel .layui-carousel-ind {
+            position: relative;
+            top: -10px;
+            text-align: center;
+        }
+
+        .layadmin-carousel .layui-carousel-ind ul {
+            background: 0 0;
+        }
+
+        .layadmin-carousel .layui-carousel-ind li {
+            background-color: #e2e2e2;
+        }
+
+        .layadmin-carousel .layui-carousel-ind li.layui-this {
+            background-color: #6495ED;
+        }
+
+        .layui-carousel-ind li {
+            display: inline-block;
+            width: 15px;
+            height: 3px;
+            margin: -10px 3px;
+            font-size: 14px;
+            background-color: #e2e2e2;
+            background-color: rgba(255, 255, 255, .5);
+            border-radius: 5px;
+            cursor: pointer;
+            -webkit-transition-duration: .3s;
+            transition-duration: .3s;
+        }
+
+        .like {
+            font-size: 25px;
+            color: #ccc;
+            cursor: pointer;
+            position: absolute;
+            right: 100px
+        }
+
+        .cs {
+            color: #f00;
+        }
+
+        .link {
+            width: 60px;
+            height: 20px;
+            font-size: 12px;
+            color: #fff;
+            float: right;
+
+
+        }
+
+        .color {
+            color: #fff !important;
+        }
+
+        /* div {
+          width: 100px;
+          height: 100px;
+          background: red;
+          border-radius: 50%;
+          position: relative;
+        } */
+
+        div.animation {
+            border: 4px dotted green;
+            width: 100px;
+            height: 100px;
+            /* background: red; */
+            border-radius: 50%;
+            animation: turn-around .5s linear infinite;
+        }
+
+        #common {
+            font-size: 10px;
+            margin-left: 10px;
+        }
+
+        @keyframes turn-around {
+            from {
+                transform: rotateZ(0deg);
+            }
+            to {
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- <div class="animation"></div> -->
+<div class="wrap-container welcome-container">
+
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                    <div class="layui-card-header" ><img src="../images/message.png" alt="">&nbsp;&nbsp;&nbsp;&nbsp;消息推送：</div>
+                    </div>
+                </div>
+                <div class="layui-col-md6">
+                    <div class="layui-card">
+                        <div class="layui-card-header" style="position: relative;">总体数据</div>
+                        <div class="layui-card-body">
+                            <div class="layui-carousel layadmin-carousel layadmin-backlog" id="test1">
+                                <div carousel-item>
+                                    <ul class="layui-row layui-col-space10">
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" class="layadmin-backlog-body" id="Exchange">
+                                                <h3>今日交易笔数</h3>
+                                                <p><span id="jrjybs">1111</span><span class="color">万笔</span></p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" class="layadmin-backlog-body" id="Exchanges">
+                                                <h3>今日交易金额</h3>
+                                                <p><span id="jrjyje">123</span><span class="color">亿元</span></p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" class="layadmin-backlog-body" id="Exchanged">
+                                                <h3>今日活卡数</h3>
+                                                <p><span id="hkstxt">2341</span><span class="color">万张</span></p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" class="layadmin-backlog-body" id="Exchangeds">
+                                                <h3>活动商户数</h3>
+                                                <p><span id="hdshtxt">256</span><span class="color">万户</span></p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="layui-row layui-col-space10">
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" class="layadmin-backlog-body" id="Exchange">
+                                                <h3>月度累计笔数</h3>
+                                                <p><span id="ydljbs">23</span><span class="color">万笔</span></p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" class="layadmin-backlog-body" id="Exchanges">
+                                                <h3>月度笔数同比增速</h3>
+                                                <p><span id="ydtbjezs">2<span class="color">&nbsp&nbsp%</span></span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" class="layadmin-backlog-body" id="Exchanged">
+                                                <h3>月度累计金额</h3>
+                                                <p><span id="ydljje">1234</span><span class="color">亿元</span></p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" class="layadmin-backlog-body" id="Exchangeds">
+                                                <h3>月度金额同比增速</h3>
+                                                <p><span id="ydtbbszs">3<span class="color">&nbsp&nbsp%</span></span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="layui-row layui-col-space10">
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" class="layadmin-backlog-body" id="Exchange">
+                                                <h3>年度累计笔数</h3>
+                                                <p><span id="ndljbs">455</span><span class="color">亿笔</span></p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" class="layadmin-backlog-body" id="Exchanges">
+                                                <h3>年度笔数同比增速</h3>
+                                                <p><span id="ndtbbszs">3<span class="color">&nbsp&nbsp%</span></span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" class="layadmin-backlog-body" id="Exchanged">
+                                                <h3>年度累计金额</h3>
+                                                <p><span id="ndljje">678</span><span class="color">万亿元</span></p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" class="layadmin-backlog-body" id="Exchangeds">
+                                                <h3>年度金额同比增速</h3>
+                                                <p><span id="ndtbjezs">8<span class="color">&nbsp&nbsp%</span></span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md6">
+                    <div class="layui-card">
+                        <div class="layui-card-header" style="position: relative;">总体</div>
+                        <div class="layui-card-body">
+                            <div class="layui-carousel layadmin-carousel layadmin-backlog" id="test2">
+                                <div carousel-item>
+                                    <div class="layui-row layui-col-space10">
+                                        <div class="layui-col-xs12">
+                                            <div id="chart" style="width:550px;height: 200px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-row layui-col-space10">
+                                        <div class="layui-col-xs12">
+                                            <div id="charts" style="width:550px;height: 200px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md12">
+
+                    <div class="layui-card">
+                        <div class="layui-tab layui-tab-card">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this">总体</li>
+                                <li>业务运行</li>
+                                <li>移动产品</li>
+                                <li>用户发展</li>
+                                <li>商户发展</li>
+                                <li>异动监控</li>
+                            </ul>
+                            <div class="layui-tab-content">
+                                <div class="layui-tab-item layui-show">
+                                    <ul class="layui-row layui-col-space15">
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">笔数走势
+                                                    <span id="common"><span>00成功笔数:</span><span
+                                                            id="strokes">1520.2</span>&nbsp;万笔</span> <span
+                                                            class="like">&#10084</span>
+                                                    <div class="link" id="baselink">
+                                                        <span
+                                                            style="border:1px solid #fff;padding: 5px 5px">
+                                                        <a data-url="../pages/baseTotalDetails.html" data-id="one" data-title="总体详情" class="detail">查看详情</a></span></div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="baseTotalChart" style="width:450px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">金额走势
+                                                    <span id="common"><span>清算金额:</span><span id="moneys">1520.2</span>&nbsp;亿元</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">
+                                                            <a data-url="../pages/baseTotalDetail-peice.html" data-id="two" data-title="总体详情" class="detail">查看详情</a></span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="baseTotalCharts" style="width:450px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="layui-tab-item">
+
+                                    <ul class="layui-row layui-col-space15">
+                                        <div>基础转接清算业务</div>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">基础总体
+                                                    <span id="common"><span>00成功笔数:</span><span
+                                                            id="stroke">1520.2</span>&nbsp;万笔</span> <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="charted" style="width:450px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">基础总体
+                                                    <span id="common"><span>清算金额:</span><span id="money">1520.2</span>&nbsp;亿元</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="charteds" style="width:450px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">线下消费
+                                                    <span id="common"><span>清算金额:</span><span id="offline">1520.2</span>&nbsp;亿元</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="posBarChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">线上消费<span
+                                                        id="common"><span>清算金额:</span><span id="online">1520.2</span>&nbsp;亿元</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="xsxfChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">贷记业务
+                                                    <span id="common"><span>清算金额:</span><span id="credit">1520.2</span>&nbsp;亿元</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="djywChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">账户验证<span
+                                                        id="common"><span>00成功笔数:</span><span id="account">1520.2</span>&nbsp;万笔</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="zhyzChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">ATM<span
+                                                        id="common"><span>清算金额:</span><span id="atm">1520.2</span>&nbsp;亿元</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="atmChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">代收<span
+                                                        id="common"><span>00成功笔数:</span><span id="account">1520.2</span>&nbsp;万笔</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="zhyzChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">价格费率<span
+                                                        id="common"><span>清算金额:</span><span id="atm">1520.2</span>&nbsp;亿元</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="atmChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="layui-row layui-col-space15">
+                                        <div>断直连</div>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">发卡侧 <span
+                                                        id="common"><span>00成功笔数:</span><span id="tuck">1520.2</span>&nbsp;万笔</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="fkcChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">收单侧 <span
+                                                        id="common"><span>成功笔数:</span><span id="acquirer">1520.2</span>&nbsp;万笔</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="sdcChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">客结业务<span
+                                                        id="common"><span>结算金额:</span><span id="kjyw">1520.2</span>&nbsp;亿元</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="kjywChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="layui-tab-item">
+                                    <ul class="layui-row layui-col-space15">
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">二维码 <span
+                                                        id="common"><span>00成功笔数:</span><span id="ewm">1520.2</span>&nbsp;万笔</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="ewmChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">手机闪付<span
+                                                        id="common"><span>00成功笔数:</span><span id="sjsf">1520.2</span>&nbsp;万笔</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="sjsfChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">卡码合一 <span
+                                                        id="common"><span>00成功笔数:</span><span id="ewm">1520.2</span>&nbsp;万笔</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="ewmChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">刷脸付<span
+                                                        id="common"><span>00成功笔数:</span><span id="sjsf">1520.2</span>&nbsp;万笔</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="sjsfChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="layui-tab-item">
+                                    <ul class="layui-row layui-col-space15">
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">总体 <span><span
+                                                        id="common">活卡量:</span><span
+                                                        id="yhzt">1520.2</span>&nbsp;亿张</span> <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="yhfzTChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">移动支付<span
+                                                        id="common"><span>移动支付活卡量:</span><span id="yhydzf">1520.2</span>&nbsp;万张</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="ydzfChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">
+                                                    云闪付APP<span id="common"><span>新增注册用户数:</span><span
+                                                        id="yhapp">1520.2</span> &nbsp;万户</span><span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="appChart" style="width:500px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="layui-tab-item">
+                                    <ul class="layui-row layui-col-space15">
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">总体 <span
+                                                        id="common"><span>活动商户数:</span><span id="shzt">1520.2</span>&nbsp; 万户</span><span
+                                                        class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="shfzTChart" style="width:450px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">移动支付<span
+                                                        id="common"><span>活动商户数:</span><span id="shydzf">1520.2</span>&nbsp;万户</span>
+                                                    <span class="like">&#10084</span>
+                                                    <div class="link"><span
+                                                            style="border:1px solid #fff;padding: 5px 5px">查看详情</span>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="ydzfsChart" style="width:450px;height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="layui-tab-item">
+                                    <ul class="layui-row layui-col-space15">
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">机构交易异动情况
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="data"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="layui-col-xs12 layui-col-md6">
+                                            <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                                <div class="layui-card-header"
+                                                     style="position: relative;background: #25C0E7;color:#fff">地区交易异动情况
+                                                </div>
+                                                <div class="layui-card-body">
+                                                    <div id="dqjkdata"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<script src="../../echarts-v3.8.5/echarts.min.js"></script>
+<script src="../js/jquery.min.js"></script>
+<!-- <script src = "../js/index1.js"></script> -->
+<script src="../js/index1.js"></script>
+<script src="../js/tabs.js"></script>
+<!-- <script src="../js/index.js"></script> -->
+<script type="text/javascript">
+
+    layui.use(['layer', 'jquery', 'carousel', 'form', 'element'], function () {
+        var layer = layui.layer;
+        var $ = layui.jquery;
+        var carousel = layui.carousel
+            , form = layui.form;
+        var element = layui.element;
+        //常规轮播
+        carousel.render({
+            elem: '#test1'
+            , arrow: 'none',
+            autoplay: false,
+            width: "100%"
+        });
+        carousel.render({
+            elem: '#test2'
+            , arrow: 'none',
+            autoplay: false,
+            width: "100%"
+        });
+       
+
+
+    });
+
+   
+
+</script>
+</body>
+</html>
+<script>
+    $(function () {
+        $(".like").click(function () {
+            $(this).toggleClass('cs');
+        })
+    })
+</script>

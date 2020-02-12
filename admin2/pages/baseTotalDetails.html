@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>控制台页面</title>
+    <link rel="stylesheet" href="../../layui-2.3.0/css/layui.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script type="text/javascript" src="../../layui-2.3.0/layui.js" charset="utf-8"></script>
+    <style>
+        .layadmin-backlog .layadmin-backlog-body {
+            display: block;
+            padding: 10px 15px;
+            color: #fff;
+            border-radius: 2px;
+            transition: all .3s;
+            -webkit-transition: all .3s;
+            /* box-shadow: 0 0 5px rgb(30, 165, 86); */
+        }
+
+        .layui-tab-card > .layui-tab-title .layui-this {
+            color: #115e4e !important;
+        }
+
+        #Exchange {
+            background: -webkit-linear-gradient(320deg, #fc6b95 20%, #fdb0ae 80%);
+            background: -o-linear-gradient(320deg, #fc6b95 20%, #fdb0ae 80%);
+            background: -moz-linear-gradient(320deg, #fc6b95 20%, #fdb0ae 80%);
+            background: -ms-linear-gradient(320deg, #fc6b95 20%, #fdb0ae 80%);
+         
+            
+        }
+
+        #Exchanges {
+            background: -webkit-linear-gradient(320deg, #17b4e4 20%, #7de6fa 80%);
+            background: -o-linear-gradient(320deg, #17b4e4 20%, #7de6fa 80%);
+            background: -moz-linear-gradient(320deg, #17b4e4 20%, #7de6fa 80%);
+            background: -ms-linear-gradient(320deg, #17b4e4 20%, #7de6fa 80%);
+            
+        }
+
+        #Exchanged {
+            background: -webkit-linear-gradient(320deg, #436dfd 20%, #99a4ee 80%);
+            background: -o-linear-gradient(320deg, #436dfd 20%, #99a4ee 80%);
+            background: -moz-linear-gradient(320deg, #436dfd 20%, #99a4ee 80%);
+            background: -ms-linear-gradient(320deg, #436dfd 20%, #99a4ee 80%);
+            
+        }
+
+        #Exchangeds {
+            background: -webkit-linear-gradient(320deg, #ff5b35 20%, #fc9d84 80%);
+            background: -o-linear-gradient(320deg, #ff5b35 20%, #fc9d84 80%);
+            background: -moz-linear-gradient(320deg, #ff5b35 20%, #fc9d84 80%);
+            background: -ms-linear-gradient(320deg, #ff5b35 20%, #fc9d84 80%);
+            
+        }
+
+        .layadmin-backlog-body p {
+           
+            color:#fff;
+        }
+        .layadmin-backlog-body h3 {
+            padding-bottom: 10px;
+            font-size: 12px;
+            color:#fff;
+        }
+
+        .layadmin-carousel .layui-col-space10 {
+            margin: 3;
+        }
+
+        .layadmin-carousel .layui-carousel, .layadmin-carousel > [carousel-item] > * {
+            background-color: #fff;
+        }
+
+        .layadmin-carousel {
+            height: 185px !important;
+            background-color: #fff;
+        }
+
+        .layadmin-carousel .layui-carousel-ind {
+            position: relative;
+            top: -10px;
+            text-align: center;
+        }
+
+        .layadmin-carousel .layui-carousel-ind ul {
+            background: 0 0;
+        }
+
+        .layadmin-carousel .layui-carousel-ind li {
+            background-color: #e2e2e2;
+        }
+
+        .layadmin-carousel .layui-carousel-ind li.layui-this {
+            background-color: #6495ED;
+        }
+
+        .layui-carousel-ind li {
+            display: inline-block;
+            width: 15px;
+            height: 3px;
+            margin: -10px 3px;
+            font-size: 14px;
+            background-color: #e2e2e2;
+            background-color: rgba(255, 255, 255, .5);
+            border-radius: 5px;
+            cursor: pointer;
+            -webkit-transition-duration: .3s;
+            transition-duration: .3s;
+        }
+
+        .like {
+            font-size: 25px;
+            color: #ccc;
+            cursor: pointer;
+            position: absolute;
+            right: 100px
+        }
+
+        .cs {
+            color: #f00;
+        }
+
+        .link {
+            width: 60px;
+            height: 20px;
+            font-size: 12px;
+            color: #fff;
+            float: right;
+
+
+        }
+
+        .color {
+            color: #fff !important;
+        }
+
+        /* div {
+          width: 100px;
+          height: 100px;
+          background: red;
+          border-radius: 50%;
+          position: relative;
+        } */
+
+        div.animation {
+           
+            width: 100px;
+            height: 100px;
+            /* background: red; */
+            border-radius: 50%;
+            animation: turn-around .5s linear infinite;
+        }
+
+        #common {
+            font-size: 10px;
+            margin-left: 10px;
+        }
+
+        @keyframes turn-around {
+            from {
+                transform: rotateZ(0deg);
+            }
+            to {
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+<body>
+    <div class="wrap-container welcome-container">
+
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-md12">
+                        <div class="layui-card">
+                        <div class="layui-card-header" ><img src="../images/message.png" alt="">&nbsp;&nbsp;&nbsp;&nbsp;消息推送:今日异动。。。。</div>
+                        </div>
+                    </div>
+                    <div class="layui-col-md12">
+                        <div class="layui-card">
+                            <div class="layui-card-header" style="position: relative;">总体数据</div>
+                            <div class="layui-card-body">
+                                        <ul class="layui-row layui-col-space12">
+                                            <li class="layui-col-xs2" id="Exchange">
+                                                <div  class="layadmin-backlog-body" ></a>
+                                                    <h3>今日交易笔数</h3>
+                                                    <p><span id="jrjybs">1111</span><span class="color">万笔</span></p>
+                                                </div>
+                                            </li>
+                                            <li class="layui-col-xs2" id="Exchanges">
+                                                <div  class="layadmin-backlog-body" id="Exchanges">
+                                                    <h3>今日交易金额</h3>
+                                                    <p><span id="jrjyje">123</span><span class="color">亿元</span></p>
+                                                </div>
+                                            </li>
+                                            <li class="layui-col-xs2" id="Exchanged">
+                                                <div  class="layadmin-backlog-body" id="Exchanged">
+                                                    <h3>今日活卡数</h3>
+                                                    <p><span id="hkstxt">2341</span><span class="color">万张</span></p>
+                                                </div>
+                                            </li>
+                                            <li class="layui-col-xs2" id="Exchangeds">
+                                                <div  class="layadmin-backlog-body" id="Exchangeds">
+                                                    <h3>活动商户数</h3>
+                                                    <p><span id="hdshtxt">256</span><span class="color">万户</span></p>
+                                                </div>
+                                            </li>
+                                            <li class="layui-col-xs2" id="Exchange">
+                                                <div class="layadmin-backlog-body" id="Exchange">
+                                                    <h3>月度累计笔数</h3>
+                                                    <p><span id="ydljbs">23</span><span class="color">万笔</span></p>
+                                                </div>
+                                            </li>
+                                            <li class="layui-col-xs2" id="Exchanges">
+                                                <div class="layadmin-backlog-body" id="Exchanges">
+                                                    <h3>月度笔数同比增速</h3>
+                                                    <p><span id="ydtbjezs">2<span class="color">&nbsp&nbsp%</span></span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul class="layui-row layui-col-space12" style="margin-top: 15px;">
+                                            <li class="layui-col-xs2" id="Exchanged">
+                                                <div  class="layadmin-backlog-body" id="Exchanged">
+                                                    <h3>月度累计金额</h3>
+                                                    <p><span id="ydljje">1234</span><span class="color">亿元</span></p>
+                                                </div>
+                                            </li>
+                                            <li class="layui-col-xs2" id="Exchangeds">
+                                                <div  class="layadmin-backlog-body" id="Exchangeds">
+                                                    <h3>月度金额同比增速</h3>
+                                                    <p><span id="ydtbbszs">3<span class="color">&nbsp&nbsp%</span></span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="layui-col-xs2" id="Exchange">
+                                                <div  class="layadmin-backlog-body" id="Exchange">
+                                                    <h3>年度累计笔数</h3>
+                                                    <p><span id="ndljbs">455</span><span class="color">亿笔</span></p>
+                                                </div>
+                                            </li>
+                                            <li class="layui-col-xs2" id="Exchanges">
+                                                <div class="layadmin-backlog-body" id="Exchanges">
+                                                    <h3>年度笔数同比增速</h3>
+                                                    <p><span id="ndtbbszs">3<span class="color">&nbsp&nbsp%</span></span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="layui-col-xs2" id="Exchanged">
+                                                <div  class="layadmin-backlog-body" id="Exchanged">
+                                                    <h3>年度累计金额</h3>
+                                                    <p><span id="ndljje">678</span><span class="color">万亿元</span></p>
+                                                </div>
+                                            </li>
+                                            <li class="layui-col-xs2" id="Exchangeds">
+                                                <div  class="layadmin-backlog-body" id="Exchangeds">
+                                                    <h3>年度金额同比增速</h3>
+                                                    <p><span id="ndtbjezs">8<span class="color">&nbsp&nbsp%</span></span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                       
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="layui-col-md12" style="margin: 5px 0">
+                        <div class="layui-card">
+                            <div class="layui-card-header" style="position: relative;">图表走势</div>
+                            <div class="layui-card-body">
+                                 <form class="layui-form" action="">
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                          <label class="layui-form-label">地区</label>
+                                          <div class="layui-input-inline">
+                                            <input type="text" name="number" lay-verify="required|number" autocomplete="off" class="layui-input" placeholder="全国">
+                                          </div>
+                                        </div>
+                                        
+                                        <div class="layui-inline">
+                                          <label class="layui-form-label">机构</label>
+                                          <div class="layui-input-inline">
+                                            <input type="tel" name="url" lay-verify="url" autocomplete="off" class="layui-input" placeholder="全国">
+                                          </div>
+                                        </div>
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">日期范围</label>
+                                            <div class="layui-input-inline">
+                                              <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+                                            </div>
+                                          </div>
+                                      </div>
+                                 </form>
+
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="layui-col-md12" style="margin: 5px 0">
+                        <ul class="layui-row layui-col-space15">
+                            <li class="layui-col-xs12 layui-col-md6">
+                                <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                    <div class="layui-card-header"
+                                         style="position: relative;color:#000">清算金额
+                                       
+                                    </div>
+                                    <div class="layui-card-body">
+                                        <div id="chart" style="width:450px;height: 200px;"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="layui-col-xs12 layui-col-md6">
+                                <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                    <div class="layui-card-header"
+                                         style="position: relative;color:#000">交易笔数
+                                       
+                                    </div>
+                                    <div class="layui-card-body">
+                                        <div id="charts" style="width:450px;height: 200px;"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="layui-col-md12" style="margin: 5px 0">
+                        <ul class="layui-row layui-col-space15">
+                            <li class="layui-col-xs12 layui-col-md12">
+                                <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                    <div class="layui-card-header"
+                                         style="position: relative;color:#000">清算金额
+                                       
+                                    </div>
+                                    <div class="layui-card-body">
+                                        <div id="baseTotalChart" style="width:450px;height: 200px;"></div>
+                                    </div>
+                                </div>
+                            </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="layui-col-md12" style="margin: 5px 0">
+                        <ul class="layui-row layui-col-space15">
+                            <li class="layui-col-xs12 layui-col-md12">
+                                <div class="layui-card" style="border:1px solid #25C0E7 !important">
+                                    <div class="layui-card-header"
+                                         style="position: relative;color:#000">交易笔数
+                                       
+                                    </div>
+                                    <div class="layui-card-body">
+                                        <div id="baseTotalChart" style="width:450px;height: 200px;"></div>
+                                    </div>
+                                </div>
+                            </li>
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+    
+        </div>
+    </div>
+
+
+</body>
+</html>
+<script src="../../echarts-v3.8.5/echarts.min.js"></script>
+<script src="../js/jquery.min.js"></script>
+<!-- <script src = "../js/index1.js"></script> -->
+<script src="../js/Detail/baseTotal.js"></script>
+<script src="../js/index.js"></script>
+<script type="text/javascript">
+
+        layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form
+        ,layer = layui.layer
+        ,layedit = layui.layedit
+        ,laydate = layui.laydate;
+       //日期
+        laydate.render({
+            elem: '#date',
+            range: true
+        });
+
+
+    });
+</script>

@@ -1,0 +1,297 @@
+body {
+    overflow-y: hidden;
+    position: relative;
+}
+
+.logo-content {
+    background: #fff;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.mainLogo {
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100% - 60px);
+    background: #fff;
+}
+
+.mainLogo h2.title {
+    color: #666;
+    padding: 20px 0 0 19%;
+    letter-spacing: 2px;
+
+}
+
+.mainLogo h2.title img.logo {
+    height: 45px;
+    width: 54px;
+    margin-right: 5px;
+    margin-top: -10px
+}
+
+.error {
+    height: 4px;
+    background: #006a65;
+    margin: 30px 0;
+}
+
+/* .blue-background{
+	position: relative;
+	left:300px;
+	top:30px;
+	height: 286px;
+	width: 254px;
+	margin-left: 20px;
+	background: #f7f7f7;
+	color:#0369d2;
+	
+	
+} */
+
+#name {
+    display: inline-block;
+
+}
+
+.footer {
+    text-align: center;
+    color: #666;
+    bottom: 20px;
+}
+
+.main {
+    width: 800px;
+    height: 400px;
+    display: table;
+    margin: 0px auto;
+    box-shadow: 0 0 5px #7c7c7c
+}
+
+.logo-inputs {
+    padding: 0 20px;
+    margin-top: -10px;
+}
+
+.border-bottom-logo {
+    position: relative;
+    padding: 0 15px;
+    padding-bottom: 24px;
+    color: #338884;
+}
+
+label {
+    font-size: 15px;
+    color: #6666;
+}
+
+input {
+    border: 1px solid #338884;
+    font-size: 16px;
+    color: #707070;
+    position: relative;
+    top: 5px;
+    height: 34px;
+    line-height: 34px;
+    width: 200px;
+    border-radius: 4px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.pwd {
+    margin-top: 30px;
+    letter-spacing: 8px;
+}
+
+.pwd::-webkit-input-placeholder {
+    letter-spacing: 0;
+}
+
+.pwd:-moz-placeholder {
+    letter-spacing: 0;
+}
+
+.pwd::-moz-placeholder {
+    letter-spacing: 0;
+}
+
+.pwd:-ms-input-placeholder {
+    letter-spacing: 0;
+}
+
+.white-background {
+    padding: 0 40px;
+    height: 114px;
+    margin-top: 2px;
+    box-sizing: border-box;
+    border-color: none;
+}
+
+.loginbtn {
+    border: none;
+    position: relative;
+    bottom: 40px;
+    right: 20px;
+    font-size: 15px;
+    color: #fff;
+    height: 34px;
+    width: 200px;
+    background: #006a65;
+    opacity: 1;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+/* .main-img{
+	
+	margin-top:40px;
+	top:80px;
+
+	width: 710px;
+    height: 456px;
+    float:left;
+}
+.main {
+	
+	width: 380px;
+	background: #fff;
+	float: right;
+	margin-top:58px;
+	border-radius: 4px;
+	box-sizing: border-box;	
+	
+	position: relative;
+}
+.blue-background{
+	
+	height:256px;
+	border-color: none;
+}
+.white-background{
+	padding:0 40px;
+	height:114px;
+	
+	margin-top: 2px;
+	
+	box-sizing: border-box;
+	border-color: none;
+}
+
+.logo-header{
+
+	height:60px;
+	line-height: 60px;
+	margin-left:100px;
+}
+.logo-top{
+	width:154px;
+	height:60px;
+	margin-top:6px;
+	display: inline-block;
+	padding:5px;
+	box-sizing: border-box;
+	background:url(../images/logo-top.png) no-repeat;
+}
+.big-img{
+	width:100%;
+	height:100px;
+}
+.logo-big{
+	width:132px;
+	height:61px;
+	margin-top:50px;
+	
+	display: inline-block;
+	padding:5px;
+	box-sizing: border-box;
+	background:url(../images/logo-big.png) no-repeat;
+}
+.logo {
+	display: inline-block;
+	width: 117px;
+	height: 34px;
+	top: 30px;
+	background-image: url(../images/logo11.png);
+	margin-left:0;
+}
+
+.titles {
+	display: inline-block;
+	font-size: 18px;
+	color: #3392fd;
+	position: absolute;
+    top:3px;
+    right:40px;
+}
+
+input {
+	border: none;
+	font-size: 16px;
+	color: #707070;
+	position: relative;
+	top: 66px;
+	height: 40px;
+	line-height: 40px;
+	width: 300px;
+	
+	background-color:#f3f5fb !important;
+	border-radius: 4px;
+	padding-left: 30px;
+	box-sizing: border-box;
+}
+ input:focus { 
+ 	outline: none;
+}
+.logo-inputs{
+	padding:0 40px;
+	margin-top: -33px;
+}
+.border-bottom-logo{
+	position: relative;
+    margin-top: 24px;
+    padding: 0 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #8dc3ff;
+}
+
+.pwd {
+	top: 98px;
+	letter-spacing: 8px;
+}
+.pwd::-webkit-input-placeholder{
+	letter-spacing:0;
+}
+.pwd:-moz-placeholder{
+	letter-spacing:0;
+}
+.pwd::-moz-placeholder{
+	letter-spacing:0;
+}
+.pwd:-ms-input-placeholder{
+	letter-spacing:0;
+}
+
+.loginbtn {
+	border: none;
+	position: relative;
+	bottom:0;	
+	font-size: 18px;
+	color: #FFFEFE;
+	height: 45px;
+	width: 100%;
+	background: #3392fd;
+	opacity: 1;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.error {
+	font-size: 14px;
+	color: #FA3F3F;
+	position: absolute;
+	top: 97px;
+	left: 40px;
+} */
